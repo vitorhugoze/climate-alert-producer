@@ -7,7 +7,6 @@ import org.domain.model.WeatherVariableType;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.ZoneOffset;
 
 public class WeatherMapper {

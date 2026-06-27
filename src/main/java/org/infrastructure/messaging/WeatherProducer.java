@@ -15,7 +15,7 @@ public class WeatherProducer {
 
     public static void produceWeatherMessages() {
         Properties props = new Properties();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:12055");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, WeatherSerializer.class);
 

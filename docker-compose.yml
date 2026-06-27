@@ -1,0 +1,7 @@
+services:
+  climate-alert-producer:
+    build: .
+    image: climate-alert-producer:latest
+    container_name: climate-alert-producer
+    environment:
+      - GOOGLE_CLIMATE_API_KEY=${GOOGLE_CLIMATE_API_KEY}

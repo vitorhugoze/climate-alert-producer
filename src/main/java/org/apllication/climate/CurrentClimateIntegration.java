@@ -7,7 +7,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.apllication.climate.dto.CurrentClimateDTO;
-import org.apllication.climate.dto.WeatherCondition;
 
 public class CurrentClimateIntegration {
 
@@ -17,6 +16,10 @@ public class CurrentClimateIntegration {
 
     public static CurrentClimateDTO requestCurrentClimate(String latitude, String longitude) throws Exception {
         OkHttpClient client = new OkHttpClient();
+
+        if (API_KEY == null || API_KEY.isEmpty()) {
+            throw new Exception("GOOGLE_CLIMATE_API_KEY key is not set.");
+        }
 
         String url = String.format(BASE_URL + "?key=%s&location.latitude=%s&location.longitude=%s", API_KEY, latitude, longitude);
 
