@@ -1,13 +1,11 @@
 package org.infrastructure.messaging;
 
 import com.google.gson.Gson;
-import org.apache.kafka.common.serialization.Deserializer;
 import org.apache.kafka.common.serialization.Serializer;
 import org.domain.model.Weather;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
-import java.util.Objects;
 
 public class WeatherSerializer implements Serializer<Weather> {
     private final Gson gson = new Gson();

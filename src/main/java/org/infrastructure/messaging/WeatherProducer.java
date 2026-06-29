@@ -13,9 +13,11 @@ import java.util.Properties;
 
 public class WeatherProducer {
 
+    private static final String BROKER_ADDRESS = System.getenv("BROKER_ADDRESS") != null ? System.getenv("BROKER_ADDRESS") : "localhost:9092";
+
     public static void produceWeatherMessages() {
         Properties props = new Properties();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:12055");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BROKER_ADDRESS);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, WeatherSerializer.class);
 
@@ -29,6 +31,8 @@ public class WeatherProducer {
                 if (optWeather.isPresent()) {
                     ProducerRecord<String, Weather> record = new ProducerRecord<>("climate-topic", "k" + i, optWeather.get());
                     producer.send(record);
+
+                    System.out.println("Sent weather message: " + optWeather.get());
                 }
 
                 i++;

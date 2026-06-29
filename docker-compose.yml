@@ -5,3 +5,4 @@ services:
     container_name: climate-alert-producer
     environment:
       - GOOGLE_CLIMATE_API_KEY=${GOOGLE_CLIMATE_API_KEY}
+      - BROKER_ADDRESS=kafka-broker:9092
